@@ -104,12 +104,10 @@
 <meta property="og:site_name" content="YU的博客">
 <meta property="og:description" content="初入编程，知道笔记和分享的重要性，教会、帮助他人，也能熟悉已经学习过的内容，何乐不为。  注册Github账号并建立网站代码仓库 注册G-mail邮箱后注册Github账号  在 Github创建一个 Repo，代码仓库的名称格式为 “账户用户名.github.io”。例如suanli.github.com。   安装node.js和git输入代码 ，查看是否安装，如果安装，就会返回版本号。 1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/Users/yu/Desktop/1233.png">
-<meta property="og:updated_time" content="2019-06-21T01:09:41.815Z">
+<meta property="og:updated_time" content="2019-06-23T02:43:12.980Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo+Github搭建个性化Blog">
 <meta name="twitter:description" content="初入编程，知道笔记和分享的重要性，教会、帮助他人，也能熟悉已经学习过的内容，何乐不为。  注册Github账号并建立网站代码仓库 注册G-mail邮箱后注册Github账号  在 Github创建一个 Repo，代码仓库的名称格式为 “账户用户名.github.io”。例如suanli.github.com。   安装node.js和git输入代码 ，查看是否安装，如果安装，就会返回版本号。 1">
-<meta name="twitter:image" content="http://yoursite.com/Users/yu/Desktop/1233.png">
 
 
 
@@ -438,6 +436,8 @@
 <h4 id="创建文章"><a href="#创建文章" class="headerlink" title="创建文章"></a>创建文章</h4><p>输入<code>cd &lt;网站文件夹&gt;</code>   (前面提到的自命名的文件夹)</p>
 <p>输入<code>hexo new post &quot;文章标题 一&quot;</code>来新建文章，因为标题里有空格，所以加上了引号。在source/_posts文件夹下生成.md格式的文章空白模板，打开编辑即可，</p>
 <p>或者直接在 <code>source/_posts</code> 中新建一个.md文件，进行编辑，编辑完后保存，刷新本地站点页面，马上显现出来你刚刚编辑的文章内容。</p>
+<p>在网站文件夹下输入代码<code>hexo s --draft</code>可以本地预览草稿，输入<code>hexo s</code>下只能预览_posts文件夹下的文章，不能预览草稿。</p>
+<p>当文章完成后使用命令<code>hexo publish 草稿文件名称</code>进行发布，这会将<code>source/_drafts</code>下的文件移动于<code>source/_posts</code>文件夹下，随后就可以发布。</p>
 <h4 id="部署网站"><a href="#部署网站" class="headerlink" title="部署网站"></a>部署网站</h4><p>编辑站点文件夹下的<code>_config.yml</code> ，不是主题文件夹下的_config.yml，修改如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/Github用户名/Github用户名.github.io.git    #已经创建的代码仓库地址</span><br><span class="line">  branch: master   #部署到分支master下</span><br></pre></td></tr></table></figure>
 
@@ -445,8 +445,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git —save</span><br></pre></td></tr></table></figure>
 
 <p>执行指令<code>hexo d</code>,完成部署。</p>
-<p>在浏览器中输入：<code>http://github用户名.github.io</code> 即可访问网站：</p>
-<p><img src="/Users/yu/Desktop/1233.png" alt="1233"></p>
+<p>在浏览器中输入：<code>http://github用户名.github.io</code> 即可访问网站。</p>
 <h4 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h4><p>进入hexo官网找主题，比如 Next主题,复制主题Github地址，然后用Terminal进入themes文件夹下输入代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next.git</span><br></pre></td></tr></table></figure>
 
@@ -462,7 +461,7 @@
 <p>hexo g和hexo d可以合并成hexo g -d</p>
 <p>要更换主题，可以直接将themes目录下的主题文件夹删除掉，重新安装新的主题。</p>
 <h4 id="调整页面宽度"><a href="#调整页面宽度" class="headerlink" title="调整页面宽度"></a>调整页面宽度</h4><p>在<code>themes\next\source\css\_variables\custom.styl</code>中加入下面的代码，调整blog内容区域宽度占网页的比例，代码数值85%可以调整成任意值：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$content-desktop         = 85%</span><br><span class="line">$content-desktop-large   = 85%</span><br><span class="line">$content-desktop-largest = 85%</span><br></pre></td></tr></table></figure>
+<figure class="highlight styl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$content</span>-desktop         = <span class="number">85%</span></span><br><span class="line"><span class="variable">$content</span>-desktop-large   = <span class="number">85%</span></span><br><span class="line"><span class="variable">$content</span>-desktop-largest = <span class="number">85%</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="边栏中添加分类选项"><a href="#边栏中添加分类选项" class="headerlink" title="边栏中添加分类选项"></a>边栏中添加分类选项</h4><p><code>cd hexo网站目录</code>,敲入代码，创建source/categories/index.md完成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
@@ -483,7 +482,7 @@
 <h4 id="删除首页文章分割线"><a href="#删除首页文章分割线" class="headerlink" title="删除首页文章分割线"></a>删除首页文章分割线</h4><p>打开主题目录的<code>source/css/_common/components/post/post-eof.styl</code>配置文件，关闭首页文章分割线。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 注释"<span class="selector-tag">margin</span>"属性，修改"<span class="selector-tag">width</span>"属性值为0%</span><br><span class="line"><span class="selector-class">.posts-expand</span> &#123;</span><br><span class="line">  .post-eof &#123;</span><br><span class="line">    <span class="selector-tag">display</span>: <span class="selector-tag">block</span>;</span><br><span class="line">    //margin: $post-eof-margin-top auto $post-eof-margin-bottom;</span><br><span class="line">    <span class="selector-tag">width</span>: 0%;</span><br><span class="line">    <span class="selector-tag">height</span>: 1<span class="selector-tag">px</span>;</span><br><span class="line">    background: $grey-light;</span><br><span class="line">    <span class="selector-tag">text-align</span>: <span class="selector-tag">center</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  created_at:</span> <span class="literal">true</span>   <span class="comment">#文章发表时间</span></span><br><span class="line"><span class="attr">  updated_at:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span>    <span class="comment">#文章更新时间</span></span><br><span class="line"><span class="attr">    another_day:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="literal">true</span>   <span class="comment">#文章分类</span></span><br></pre></td></tr></table></figure>
+<h4 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line"><span class="attr">  item_text:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  created_at:</span> <span class="literal">true</span>   <span class="comment">#文章发表时间</span></span><br><span class="line"><span class="attr">  updated_at:</span></span><br><span class="line"><span class="attr">    enabled:</span> <span class="literal">true</span>    <span class="comment">#文章更新时间</span></span><br><span class="line"><span class="attr">    another_day:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  categories:</span> <span class="literal">true</span>   <span class="comment">#文章分类</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># Code Highlight theme</span></span><br><span class="line"><span class="comment"># Available values: normal | night | night eighties | night blue | night bright</span></span><br><span class="line"><span class="comment"># https://github.com/chriskempson/tomorrow-theme</span></span><br><span class="line"><span class="attr">highlight_theme:</span> <span class="string">normal</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="搭建Hexo博客的过程中遇到的问题和解决办法"><a href="#搭建Hexo博客的过程中遇到的问题和解决办法" class="headerlink" title="搭建Hexo博客的过程中遇到的问题和解决办法"></a>搭建Hexo博客的过程中遇到的问题和解决办法</h4><ul>
 <li><p>1  输入<code>hexo -v</code>，出现错误提示：<code>zsh: command not found: hexo</code>,输入npm install hexo-cli -g 来安装hexo，发现还是提示<code>zsh: command not found: hexo</code>,可能权限不够，在命令前加上<code>sudo</code>，用管理员身份成功安装,输入<code>sudo npm install hexo-cli -g</code>，安装hexo成功。</p>
@@ -501,8 +500,6 @@
 <li><p>5  需要删掉用命令新建的文章或页面时，只需要进入 Hexo 根目录下的 <code>source</code> 文件夹，删除对应文件或文件夹即可。</p>
 </li>
 </ul>
-<p>文章/标题使用的字体：</p>
-<p>  ‘Monda’ , ‘Lato’, “PingFang SC”, “Microsoft YaHei”, sans-serif</p>
 
       
     </div>
@@ -540,6 +537,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/24/在Narbar上添加搜索栏来实现搜索功能/" rel="prev" title="如何在Narbar上添加搜索栏来实现搜索功能">
+                如何在Narbar上添加搜索栏来实现搜索功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -607,7 +620,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
